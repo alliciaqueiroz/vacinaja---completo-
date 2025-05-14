@@ -1,0 +1,371 @@
+* {  
+    margin: 0; /* Remove as margens padrão de todos os elementos */
+    padding: 0; /* Remove o padding padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui o padding e as bordas no tamanho total dos elementos */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão do corpo do texto */
+    background-color: #DCFCFF; /* Define a cor de fundo da página */
+    color: #000000; /* Define a cor do texto */
+    display: flex; /* Utiliza o layout flexbox para organizar os elementos */
+    flex-direction: column; /* Organiza os elementos em uma coluna */
+    align-items: center; /* Alinha os elementos no centro horizontalmente */
+    justify-content: flex-start; /* Posiciona os elementos no início da página verticalmente */
+    height: 100vh; /* Define a altura do corpo como 100% da altura da janela */
+    overflow-x: hidden; /* Remove a barra de rolagem horizontal */
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.top-bar {
+    width: 100%; /* Faz a barra superior ocupar toda a largura */
+    height: 86px; /* Define a altura da barra superior */
+    background-color: #5EA5C1; /* Define a cor de fundo da barra */
+    display: flex; /* Alinha os itens dentro da barra com flexbox */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: space-between; /* Espaça os itens igualmente entre si */
+    padding: 10 20px; /* Adiciona um espaço interno de 20px nas laterais */
+    position: fixed; /* Fixa a barra no topo, mesmo ao rolar a página */
+    z-index: 10; /* Garante que a barra esteja acima de outros elementos */
+    top: 0; /* Posiciona a barra no topo da página */
+ 
+}
+
+.water-drop-svgrepo-com-3 {
+    position: absolute; /* Define o posicionamento absoluto em relação ao elemento pai */
+    top: 0px; /* Posiciona no topo do contêiner pai */
+    left: 10px; /* Adiciona 20px de margem da esquerda */
+    width: 64px; /* Define a largura do ícone */
+    height: 64px; /* Define a altura do ícone */
+    display: flex; /* Utiliza flexbox para alinhar conteúdo dentro do ícone */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    transition: width 0.3s, height 0.3s; /* Suaviza mudanças no tamanho do ícone */
+}
+
+.search-container {
+    display: flex; /* Configura layout flex para organizar os itens */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 100%; /* Faz o contêiner ocupar toda a largura */
+    position: relative; /* Necessário para posicionar elementos dentro com 'absolute' */
+}
+
+.search-container h1 {
+    font-size: 18px; /* Define o tamanho da fonte do título */
+    transition: font-size 0.3s; /* Suaviza a transição ao alterar o tamanho da fonte */
+}
+
+.search-box {
+    width: 100%; /* Ocupará 100% do contêiner pai */
+    max-width: 450px; /* Define uma largura máxima para o campo de busca */
+    position: absolute; /* Permite posicionar com 'left' e 'transform' */
+    left: 50%; /* Move o campo 50% para a direita */
+    transform: translateX(-50%); /* Ajusta o deslocamento para centralizar */
+}
+
+.search-input {
+    width: 90%; /* Faz o campo de busca ocupar toda a largura */
+    height: 40px; /* Define a altura do campo */
+    padding-left: 40px; /* Adiciona espaço para o ícone dentro do campo */
+    padding-right: 40px; /* Adiciona espaço no lado direito */
+    border-radius: 12px; /* Adiciona cantos arredondados */
+    font-size: 16px; /* Define o tamanho da fonte do texto no campo */
+    color: #000000; /* Define a cor do texto */
+    background-color: white; /* Define a cor de fundo do campo */
+    border: none; /* Remove a borda padrão */
+    outline: none; /* Remove o contorno padrão ao focar no campo */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.search-box svg {
+    position: absolute; /* Posiciona o ícone dentro do campo */
+    left: 10px; /* Adiciona margem esquerda */
+    top: 50%; /* Posiciona o ícone no meio verticalmente */
+    transform: translateY(-50%); /* Centraliza completamente o ícone verticalmente */
+    fill: #102E46; /* Define a cor do ícone */
+    width: 16px; /* Define a largura do ícone */
+    height: 16px; /* Define a altura do ícone */
+    cursor: pointer; /* Muda o cursor para "mãozinha" ao passar sobre o ícone */
+    transition: width 0.3s, height 0.3s; /* Suaviza a alteração de tamanho */
+}
+
+.add-vaccine-btn {
+    padding: 12px 15px; /* Define o espaço interno do botão */
+    background-color: white; /* Define a cor de fundo */
+    color: #000000; /* Define a cor do texto */
+    font-size: 14px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o peso da fonte como negrito */
+    border-radius: 8px; /* Adiciona cantos arredondados */
+    cursor: pointer; /* Muda o cursor para "mãozinha" */
+    transition: background-color 0.3s ease, width 0.3s; /* Suaviza mudanças no fundo e tamanho */
+    z-index: 15; /* Coloca o botão acima de outros elementos */
+    position: fixed; /* Fixa o botão na posição */
+    top: 10px; /* Adiciona margem do topo */
+    right: 20px; /* Adiciona margem da direita */
+    margin-top: 10px; /* Ajusta a posição vertical */
+}
+
+.add-vaccine-btn:hover {
+    background-color: #707371; /* Muda a cor de fundo ao passar o mouse */
+}
+
+.group-4 {
+    position: absolute; /* Define o posicionamento absoluto */
+    top: 10px; /* Posiciona 10px do topo */
+    right: 10px; /* Posiciona 10px da direita */
+    width: 44.96px; /* Define a largura */
+    height: 64px; /* Define a altura */
+}
+
+.container {
+    display: grid; /* Usa layout de grade para organizar os elementos */
+    grid-template-columns: repeat(3, 1fr); /* Define 3 colunas de tamanhos iguais */
+    gap: 20px; /* Define o espaço entre os itens */
+    max-width: 1200px; /* Define a largura máxima */
+    margin-top: 30px; /* Adiciona espaço no topo */
+    width: 100%; /* Faz o contêiner ocupar toda a largura */
+    padding: 120px 30px 30px; /* Adiciona espaço interno no topo e nas laterais */
+}
+
+
+.image-upload {
+    display: none; /* Oculta o input de upload de imagem */
+}
+
+.box {
+    background: linear-gradient(to top, #6FB9C4, #B0DCE8);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.box:hover {
+    transform: translateY(-5px);
+  }
+
+
+.top-space {
+    height: 120px; /* Define a altura do espaço superior */
+    background-color: #000000; /* Define uma cor de fundo cinza clara */
+    display: flex; /* Usa flexbox para alinhar o conteúdo */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    position: relative; /* Necessário para posicionar elementos relativos */
+    cursor: pointer; /* Exibe o cursor como "mãozinha" */
+    border-top-left-radius: 8px; /* Arredonda o canto superior esquerdo */
+    border-top-right-radius: 8px; /* Arredonda o canto superior direito */
+}
+
+.top-space::after {
+    color: #000000; /* Define a cor do texto */
+    font-size: 14px; /* Define o tamanho do texto */
+    position: absolute; /* Posiciona o texto no centro da área */
+    top: 50%; /* Alinha o texto verticalmente */
+    left: 50%; /* Alinha o texto horizontalmente */
+    transform: translate(-50%, -50%); /* Centraliza o texto completamente */
+}
+
+.top-space.has-image::after {
+    content: ""; /* Remove o conteúdo "placeholder" quando há uma imagem */
+}
+
+.vaccine-info {
+    background: linear-gradient(to top, #6FB9C4, #B0DCE8);
+    color: #1A737E; /* Define a cor do texto como branco */
+    padding: 15px; /* Adiciona espaço interno ao redor do texto */
+    flex-grow: 1; /* Faz esta seção expandir para ocupar o espaço disponível */
+}
+
+.vaccine-name {
+    font-size: 16px; /* Define o tamanho da fonte do nome da vacina */
+    font-weight: bold; /* Define o texto como negrito */
+    margin-bottom: 10px; /* Adiciona um espaço inferior ao título */
+    color: #1A737E /* Define a cor do texto */
+}
+
+.vaccine-details {
+    font-size: 12px; /* Define o tamanho da fonte para os detalhes */
+    color: #000000; /* Define a cor do texto para os detalhes */
+}
+
+.vaccine-image {
+    width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
+    height: 100%; /* Faz a imagem ocupar toda a altura do contêiner */
+    object-fit: cover; /* Corta ou ajusta a imagem para preencher o contêiner */
+    border-top-left-radius: 8px; /* Arredonda o canto superior esquerdo */
+    border-top-right-radius: 8px; /* Arredonda o canto superior direito */
+}
+
+.button-container {
+    margin-top: 16px; /* Adiciona espaço superior ao contêiner dos botões */
+}
+
+.edit {
+    background-color: #DCFCFF; /* Define o fundo do botão de editar como verde */
+    color: #000000; /* Define a cor do texto como branco */
+    border-radius: 8px; /* Adiciona bordas arredondadas ao botão */
+    padding: 6px; /* Adiciona espaço interno ao botão */
+}
+
+.remove {
+    background-color: #5EA5C1; /* Define o fundo do botão de remover como vermelho */
+    color: #ffffff; /* Define a cor do texto como branco */
+    border-radius: 8px; /* Adiciona bordas arredondadas ao botão */
+    padding: 6px; /* Adiciona espaço interno ao botão */
+    cursor: pointer; /* Exibe o cursor como "mãozinha" ao passar sobre o botão */
+}
+
+
+@media (max-width: 1024px) {
+    .water-drop-svgrepo-com-3 {
+        width: 45px;
+        height: 45px;
+    }
+
+    .search-container h1 {
+        font-size: 18px;
+    }
+
+    .search-box {
+        max-width: 60%;
+    }
+
+    .search-input {
+        font-size: 16px;
+        height: 35px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .search-box svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .add-vaccine-btn {
+        font-size: 14px;
+        padding: 6px 8px;
+        width: 120px;
+    }
+
+    .container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 120px 40px 30px;
+    }
+
+    .vaccine-name {
+        font-size: 18px;
+    }
+
+    .vaccine-details {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .water-drop-svgrepo-com-3 {
+        width: 35px;
+        height: 35px;
+    }
+
+    .search-container h1 {
+        font-size: 16px;
+    }
+
+    .search-box {
+        max-width: 50%;
+    }
+
+    .search-input {
+        font-size: 15px;
+        height: 28px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .search-box svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .add-vaccine-btn {
+        font-size: 13px;
+        padding: 5px 7px;
+        width: 100px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 120px 50px 30px;
+    }
+
+    .top-space {
+        height: 100px;
+    }
+
+    .vaccine-name {
+        font-size: 16px;
+    }
+
+    .vaccine-details {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .water-drop-svgrepo-com-3 {
+        width: 25px;
+        height: 25px;
+    }
+
+    .search-container h1 {
+        font-size: 14px;
+    }
+
+    .search-box {
+        max-width: 40%;
+    }
+
+    .search-input {
+        font-size: 14px;
+        height: 25px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .search-box svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    .add-vaccine-btn {
+        font-size: 12px;
+        padding: 4px 5px;
+        width: 80px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 120px 60px 40px;
+    }
+
+    .top-space {
+        height: 90px;
+    }
+
+    .vaccine-name {
+        font-size: 15px;
+    }
+
+    .vaccine-details {
+        font-size: 12px;
+    }
+}

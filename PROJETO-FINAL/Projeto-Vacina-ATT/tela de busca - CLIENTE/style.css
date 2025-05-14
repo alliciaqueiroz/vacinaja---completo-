@@ -1,0 +1,212 @@
+/* Reset básico */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #DCFCFF; /* Cor de fundo */
+  color: #333;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #5EA5C1; /* Cor do topo */
+}
+
+.header .logo img {
+  width: 45px;
+}
+
+.search-form {
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  align-items: center; /* Adicionado para centralizar os elementos */
+}
+
+/* Estilo para o campo de pesquisa */
+.search-form input {
+  width: 70%;
+  padding: 10px;
+  border:  solid #87c9d6;
+  border-radius: 10px; /* Bordas mais arredondadas */
+  outline: none;
+}
+
+
+
+.search-form button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #56A9B5; /* Cor do botão */
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #4093A0; /* Cor do botão ao passar o mouse */
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0;
+  color: #1D2B40; /* Cor do título */
+}
+
+/* Grid das vacinas */
+.vacina-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Aumentando a largura mínima das colunas */
+  gap: 20px;
+  padding: 20px;
+}
+
+.vacina-card {
+  background-color: #B0DCE8; /* Cor do fundo das caixas de vacina */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.vacina-card:hover {
+  transform: translateY(-5px);
+}
+
+.vacina-image {
+  height: 150px;
+  background-color: #D1D1D1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vacina-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vacina-info {
+  padding: 10px;
+  background: linear-gradient(to top, #6FB9C4, #B0DCE8); /* Gradiente de fundo das informações */
+  color: #000000; /* Cor preta do texto */
+  font-size: 14px; /* Tamanho de fonte ajustado para melhor legibilidade */
+}
+
+.vacina-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000; /* Cor do nome da vacina */
+}
+
+.vacina-info-item {
+  font-size: 14px;
+  color: #4A92A2; /* Cor das informações da vacina */
+  margin: 5px 0;
+}
+
+.vacina-info-item strong {
+  font-weight: bold;
+  color: #1A737E; /* Cor das informações em negrito */
+}
+.search-form {
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Permite o posicionamento absoluto do ícone */
+}
+
+.search-form input {
+  width: 50; /* O campo de pesquisa ocupa 100% da largura disponível */
+  padding: 12px;
+  border: solid #87c9d6;
+  border-radius: 10px;
+  outline: none;
+  text-indent: 32px; /* Indentação para dar espaço à lupa */
+}
+
+.search-form .search-icon {
+  position: absolute;
+  left: 12.7%;
+  top: 28%; /* A lupa ficará a 5% da largura do campo de pesquisa (ajuste conforme necessário) */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+
+
+.modal {
+  display: none; /* Inicialmente oculto */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permite rolagem caso o conteúdo ultrapasse */
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 50px; /* Espaçamento do topo */
+}
+
+.modal-content {
+  background-color: #e6f2ff; /* Fundo azul claro */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px; /* Largura máxima do modal */
+  max-height: 80%; /* Altura máxima do modal */
+  position: relative;
+  border-radius: 8px; /* Bordas arredondadas */
+  overflow-y: auto; /* Adiciona rolagem vertical ao conteúdo */
+}
+
+.close {
+  color: #aaa;
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: 20px; /* Ajustado para ficar dentro da caixa */
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-image {
+  width: 100%;
+  max-width: 250px; /* Largura máxima da imagem */
+  max-height: 250px; /* Altura máxima da imagem */
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 90%; /* Ajusta a largura para telas menores */
+  }
+
+  .modal-image {
+    max-width: 200px; /* Reduz o tamanho da imagem para telas pequenas */
+    max-height: 200px; /* Reduz a altura da imagem para telas pequenas */
+  }
+
+  .close {
+    font-size: 28px; /* Diminui o tamanho do "X" para telas pequenas */
+  }
+}
